@@ -1,4 +1,7 @@
 {
-  "token": "",
-  "channel_name": "bot-cmd"
+  "token": "MTA1NTYxNzA4OTk1MzU5NTQzMg.G2oxFv.KGHOJ7ppFLGxkZfv0560ZWE1QYBZX0HuYHT2x4",
+  "refresh_interval": 60,
+  "channel_id": 1124688298858778634,
+  "edit_channel_name": true,
+  "channel_name": "cfx-status"
 }
