@@ -6,6 +6,7 @@
 * python status.py
 
 ## Config
+Please do not add the Comments in the config.json or you will break the script
 ```json
 {
   "token": "MTA1NTYxNzA4OTk1MzU5", // Bot Token
