@@ -1,6 +1,8 @@
 # CFX Status Bot
 * You need python installed
 
+![Screenshot_213](https://github.com/Musiker15/CFX-Status-Bot-V2/assets/49867381/0c44b506-1874-4152-92f8-f3767faf9a64)
+
 ## Execute Bot
 * pip install requests
 * python status.py
