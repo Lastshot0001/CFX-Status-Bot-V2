@@ -58,6 +58,7 @@ async def update_embed():
             if status_indicator == 'none':
                 status_text = 'All Systems Operational'
                 status_emoji = ':green_circle:'
+                embed_color, emoji = 6205745, '🟢'
                 if downtime_start and downtime_end:
                     downtime_duration = (downtime_end - downtime_start).total_seconds() // 60
                     mention_message = f"@everyone CFX is back online after {downtime_duration} minutes of downtime. All operations are normal now."
@@ -67,8 +68,7 @@ async def update_embed():
             else:
                 status_text = 'Experiencing Issues'
                 status_emoji = ':orange_circle:'
-                embed_color = 16711680 # red color
-                emoji = '🔴'
+                embed_color, emoji = 16711680, '🔴'
                 if not downtime_start:
                     downtime_start = datetime.now()
                     mention_message = f"@everyone CFX is currently facing issues and is not accessible. Please stay patient."
