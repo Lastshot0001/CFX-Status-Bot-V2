@@ -111,7 +111,6 @@ async def update_embed():
                 else:
                     new_message = await channel.send(embed=embed)
                     last_message_id = new_message.id
-
         except Exception as e:
             print(f"An error occurred: {str(e)}")
 
