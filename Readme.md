@@ -4,13 +4,13 @@ Python Bot that will show the current CFX Status
 ![Screenshot_213](https://github.com/Musiker15/CFX-Status-Bot-V2/assets/49867381/0c44b506-1874-4152-92f8-f3767faf9a64)
 
 ## Python for Debian/Ubuntu
-* sudo apt install python3
-* sudo apt install python3-pip
-* pip install discord.py requests
+* `sudo apt install python3`
+* `sudo apt install python3-pip`
+* `pip install discord.py requests`
 ## Execute Bot
-* screen -S CFXStatusBot *(if you get an error then do: sudo apt install screen)*
-* cd /folder-where-the-file-is-located/
-* python status.py
+* `screen -S CFXStatusBot` *(if you get an error then do: sudo apt install screen)*
+* `cd /folder-where-the-file-is-located/`
+* `python3 status.py`
 
 ## Hotkeys
 * `Strg+A+D` to exit the screen
