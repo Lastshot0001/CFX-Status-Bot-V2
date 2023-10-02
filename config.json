@@ -1,7 +1,7 @@
 {
-  "token": "MTA1NTYxNzA4OTk1MzU5",
-  "refresh_interval": 60,
-  "channel_id": 112468829,
-  "edit_channel_name": true,
-  "channel_name": "cfx-status"
+    "token": "MTA1NTYxNzA4OTk1MzU5NT",
+    "refresh_interval": 60,
+    "channel_id": 1124688298858778634,
+    "edit_channel_name": true,
+    "channel_name": "cfx-status"
 }
