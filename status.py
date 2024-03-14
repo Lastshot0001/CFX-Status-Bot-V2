@@ -22,7 +22,7 @@ class myBot(commands.Bot):
 
 bot = myBot(intents = intents, command_prefix = '!')
 
-with open('config.json') as f:
+with open('config.json', 'r', encoding='utf-8') as f:
     config = json.load(f)
 
 TOKEN = config['token']
