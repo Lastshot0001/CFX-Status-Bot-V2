@@ -7,7 +7,7 @@ Python Bot that will show the current CFX Status
 * pip install -r requirements.txt
 ## Execute Bot
 * screen -S CFXStatusBot *(if you get an error then do: sudo apt install screen)*
-* cd /folder-where-the-file-is-located/
+* cd /CFX-Status-Bot-V2/
 * python bot.py
 
 ## Hotkeys
