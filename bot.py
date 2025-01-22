@@ -57,7 +57,7 @@ async def fetch_status():
             return None, None
 
 async def update_embed(bot):
-    downtime_start, downtime_end, last_message_id = None, None, None
+    downtime_start, last_message_id = None, None
     embed_color, emoji = 6205745, '🟢'
 
     while not bot.is_closed():
@@ -79,20 +79,24 @@ async def update_embed(bot):
                 status_text = 'All Systems Operational'
                 status_emoji = ':green_circle:'
                 embed_color, emoji = 6205745, '🟢'
-                if downtime_start and downtime_end:
-                    downtime_duration = (downtime_end - downtime_start).total_seconds() // 60
-                    mention_message = f"@everyone CFX is back online after {downtime_duration} minutes of downtime. All operations are normal now."
-                    downtime_start, downtime_end = None, None
+
+                if downtime_start:
+                    downtime_end = datetime.now()
+                    downtime_duration = int((downtime_end - downtime_start).total_seconds() // 60)
+                    mention_message = f"||@here|| CFX is back online after {downtime_duration} minutes of downtime. All operations are normal now."
                     await channel.send(mention_message)
+                    downtime_start = None  # Reset downtime_start after notifying
             else:
                 status_text = 'Experiencing Issues'
                 status_emoji = ':orange_circle:'
                 embed_color, emoji = 16711680, '🔴'
+
                 if not downtime_start:
                     downtime_start = datetime.now()
-                    mention_message = f"@everyone CFX is currently facing issues and is not accessible. Please stay patient."
+                    mention_message = f"||@here|| CFX is currently facing issues and is not accessible. Please stay patient."
                     await channel.send(mention_message)
 
+            # Create embed
             embed = discord.Embed(title="CFX Status", color=embed_color)
             embed.add_field(name="API Status", value=f"{status_emoji} {status_text}")
 
@@ -104,9 +108,11 @@ async def update_embed(bot):
             embed.add_field(name="Component Status", value='\n'.join(component_lines), inline=False)
             embed.set_footer(text=f"Last updated at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
+            # Update channel name if needed
             if EDIT_CHANNEL:
                 await channel.edit(name=f'{emoji}︱{CHANNEL_NAME}')
 
+            # Handle embed message updates
             last_message = None
             if last_message_id:
                 try:
@@ -127,6 +133,7 @@ async def update_embed(bot):
             logging.error(f"An error occurred: {e}")
 
         await asyncio.sleep(REFRESH_INTERVAL)
+
 
 @bot.event
 async def on_command_error(ctx, error):
